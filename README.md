@@ -72,7 +72,7 @@ Implement web app to short URLs.
     
   - <p align="justify"> Escalabilty: The system will be designed to make easier escalabilty for fututure implementations and updates. </p>
 
-# 💼 Business rules
+### 💼 Business rules
 
   - <p align="justify"> Short link generation: Users can input any type of URL and recieve a generated short link.</p>
   
