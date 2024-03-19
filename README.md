@@ -50,7 +50,7 @@ Implement web app to short URLs.
 
 ### 📆 Planning
 
-  #### **Requirements**
+  #### 🎯 **Requirements**
 
   Functional requirements
   
