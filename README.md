@@ -57,10 +57,12 @@ Implement web app to short URLs.
   
   - <p align="justify"> Admin management: The admin will be able to log in the system and manage the different URLs config.</p>
     
-  - <p align="justify"> Create new URL: The users will be able to create a new URL if it doesn't exist, before that there will be extra options to short the URL like title, custom back-half URL or generate a QR Code of the shorten URL.  </p>
+  - <p align="justify"> Create new URL: The users will be able to create a new URL if it doesn't exist, before that there will be extra options to short the URL like title, custom back-half URL or generate a QR Code of the shorten URL or set a expiration date.  </p>
   
 
   - <p align="justify"> Track shortened URL: The users can track any URL shortened before, it will show statistics information like unique clicks (clicks for different users), geolocalization and devices used.</p>
+
+  - <p align="justify"> Friendly interface: The users will be able to acces to the service by a webpage or installing a CLI app which allows the user to all funcionalities. </p>
  
   Non-functional requirements
   
@@ -69,3 +71,17 @@ Implement web app to short URLs.
   - <p align="justify"> Usabilty: The interface has to be intuitive and easy to use for end users. </p>
     
   - <p align="justify"> Escalabilty: The system will be designed to make easier escalabilty for fututure implementations and updates. </p>
+
+# 💼 Business rules
+
+  - <p align="justify"> Short link generation: Users can input any type of URL and recieve a generated short link.</p>
+  
+  - <p align="justify"> Link redirection: When someone accesses the short link, they will be redirected to original URL.</p>
+  
+  - <p align="justify"> Statistics and tracking: Track total of clicks, show geolocalization of people which access to the url and devices used. </p>
+
+  - <p align="justify"> Link expiration: The link will expire if user set expiration or will be avalible for a maximum of 60 days. </p>
+  
+  - <p align="justify"> Usage limit: The number of links will be for now set to a maximum of 100 URLs. </p>
+
+  - <p align="justify"> Custom links: Using the domain the user will be able to modify the url if it is avalible </p>
