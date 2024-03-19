@@ -26,10 +26,10 @@ Implement web app to short URLs.
   #### 🌐 For back-end development.
   
   To develop the web service, I used the next tools:
-    - **Spring Boot (Java)** to develop app.
-    - **PostgreSQL** to save data.
-    - **Heroku** to host the web service.
-    - **.TECH domains** for domain and DNS config.
+  - **Spring Boot (Java)** to develop app.
+   **PostgreSQL** to save data.
+  - **Heroku** to host the web service.
+  - **.TECH domains** for domain and DNS config.
   
   #### 🎨 For front-end web-page app
   
