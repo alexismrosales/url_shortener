@@ -84,4 +84,22 @@ Implement web app to short URLs.
   
   - <p align="justify"> Usage limit: The number of links will be for now set to a maximum of 100 URLs. </p>
 
-  - <p align="justify"> Custom links: Using the domain the user will be able to modify the url if it is avalible </p>
+  - <p align="justify"> Custom links: Using the domain the user will be able to modify the url if it is avalible. </p>
+
+#
+
+### 🖥️ Software Architecture
+
+The software architecture choosen is **Three-Tier-Architecture**, using the three tiers as:
+
+- <p align="justify"> <b> Client-tier: </b> This component, refering to the front-end, there are two GUI options the CLI app and the web app. </p>
+
+- <p align="jusitfy"> <b> Server-tier: </b> On this tier the back-end service is allowed in Heroku, processing the clients requests to retrieve data and manipulate it. </p>
+
+- <p align="jusitfy"> <b> Data tier: </b> On this layer, using PostgreSQL the data will be stored in Heroku database service. </p>
+
+#
+
+### 🤖 Software Design Pattern
+
+The pattern used for the backend development is **Controller-Service-Repository**, for easy development administration and separation of concerns.
