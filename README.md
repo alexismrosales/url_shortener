@@ -13,13 +13,13 @@ Implement web app to short URLs.
 
 #### Specific objectives
 
-- Set a system that given an URLs by an HTTP request, transform and return a shorter URL  using the domain alxmr.tech.
+- <p align="justify"> Set a system that given an URLs by an HTTP request, transform and return a shorter URL  using the domain alxmr.tech. </p>
   
-- To short the URL incluiding differentt extra parameters like title, custom back-half or generate a QR Code option.
+- <p align="justify"> To short the URL incluiding differentt extra parameters like title, custom back-half or generate a QR Code option. </p>
 
-- Build a small tracker to shortened URLs.
+- <p align="justify"> Build a small tracker to shortened URLs.</p>
   
-- Develop a web frontend app and command line interface (CLI) app,
+- <p align="justify"> Develop a web frontend app and command line interface (CLI) app. </p>
   
 # 
 
@@ -54,16 +54,18 @@ Implement web app to short URLs.
 
   Functional requirements
   
-  - Admin management: The admin will be able to log in the system and manage the different URLs config.
+  
+  - <p align="justify"> Admin management: The admin will be able to log in the system and manage the different URLs config.</p>
     
-  - Create new URL: The users will be able to create a new URL if it doesn't exist, before that there will be extra options to short the URL like tile, custom back-half URL or generate a QR Code of the shorten URL. 
+  - <p align="justify"> Create new URL: The users will be able to create a new URL if it doesn't exist, before that there will be extra options to short the URL like title, custom back-half URL or generate a QR Code of the shorten URL.  </p>
+  
 
-  - Track shortened URL: The users can track any URL shortened before, it will show statistics information like unique clicks (clicks for different users), geolocalization and devices used.
-
+  - <p align="justify"> Track shortened URL: The users can track any URL shortened before, it will show statistics information like unique clicks (clicks for different users), geolocalization and devices used.</p>
+ 
   Non-functional requirements
   
-  - Data security: The system will guarantee user security by using an HTTPS Protocol, protecting sensitive information of users.
+  - <p align="justify"> Data security: The system will guarantee user security by using an HTTPS Protocol, protecting sensitive information of users. </p>
     
-  - Usabilty: The interface has to be intuitive and easy to use for end users.
+  - <p align="justify"> Usabilty: The interface has to be intuitive and easy to use for end users. </p>
     
-  - Escalabilty: The system will be designed to make easier escalabilty for fututure implementations and updates.
+  - <p align="justify"> Escalabilty: The system will be designed to make easier escalabilty for fututure implementations and updates. </p>
