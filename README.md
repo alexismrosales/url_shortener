@@ -1,6 +1,7 @@
 # 🖥️🏄‍♀️ Alxmr : Free URL shortener. 
 Web url shortener service
-
+## 🔨 How to install
+## ⌨️ CLI commands
 ## ✍️ Design 
 <details> 
 
