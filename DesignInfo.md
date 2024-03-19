@@ -1,17 +1,12 @@
-# 🖥️🏄‍♀️ Alxmr : Free URL shortener. 
-Web url shortener service
 
-<hr>
+# ✍️ Design 
 
+## 🏹 Objectives
 
-## ✍️ Design 
-
-### 🏹 Objectives
-
-#### General objectives
+### General objectives
 Implement web app to short URLs.
 
-#### Specific objectives
+### Specific objectives
 
 - <p align="justify"> Set a system that given an URLs by an HTTP request, transform and return a shorter URL  using the domain alxmr.tech. </p>
   
@@ -21,11 +16,10 @@ Implement web app to short URLs.
   
 - <p align="justify"> Develop a web frontend app and command line interface (CLI) app. </p>
   
-# 
 
-### 🛠️ Technologies
+## 🛠️ Technologies
 
-  #### 🌐 For back-end development.
+  ### 🌐 For back-end development.
   
   To develop the web service, I used the next tools:
   - **Spring Boot (Java)** to develop app.
@@ -33,24 +27,23 @@ Implement web app to short URLs.
   - **Heroku** to host the web service.
   - **.TECH domains** for domain and DNS config.
   
-  #### 🎨 For front-end web-page app
+  ### 🎨 For front-end web-page app
   
   The web-page for input and output the data I used:
   - **React/Typescript (Node.js)** as the main framework.
   - **Tailwind** for UI design.
   - **GH Pages** to deploy the  app.
   
-  #### 👓 For front-end CLI app
+  ### 👓 For front-end CLI app
   
   To create the CLI app I used:
   - **Python** to develop the app.
   - **Click** python library to manipulate the console.
 
-#
 
-### 📆 Planning
+## 📆 Planning
 
-  #### 🎯 **Requirements**
+  ### 🎯 **Requirements**
 
   Functional requirements
   
@@ -72,7 +65,7 @@ Implement web app to short URLs.
     
   - <p align="justify"> Escalabilty: The system will be designed to make easier escalabilty for fututure implementations and updates. </p>
 
-  #### 💼 Business rules
+  ### 💼 Business rules
   
   - <p align="justify"> Short link generation: Users can input any type of URL and recieve a generated short link.</p>
   
@@ -86,9 +79,8 @@ Implement web app to short URLs.
 
   - <p align="justify"> Custom links: Using the domain the user will be able to modify the url if it is avalible. </p>
 
-#
 
-### 🖥️ Software Architecture
+## 🖥️ Software Architecture
 
 The software architecture choosen is **Three-Tier-Architecture**, using the three tiers as:
 
@@ -98,8 +90,7 @@ The software architecture choosen is **Three-Tier-Architecture**, using the thre
 
 - <p align="jusitfy"> <b> Data tier: </b> On this layer, using PostgreSQL the data will be stored in Heroku database service. </p>
 
-#
 
-### 🤖 Software Design Pattern
+## 🤖 Software Design Pattern
 
 The pattern used for the backend development is **Controller-Service-Repository**, for easy development administration and separation of concerns.
