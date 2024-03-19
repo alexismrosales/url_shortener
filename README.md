@@ -62,7 +62,7 @@ Implement web app to short URLs.
 
   Non-functional requirements
   
-  - Data security: The system will guarantee user security by using an HTTTPS Protocol, protecting sensitive information of users.
+  - Data security: The system will guarantee user security by using an HTTPS Protocol, protecting sensitive information of users.
     
   - Usabilty: The interface has to be intuitive and easy to use for end users.
     
