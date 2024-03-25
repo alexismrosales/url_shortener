@@ -7,16 +7,16 @@ public class URLSMapper {
     public static URLSDto mapToURLSDto(URLS urls){
         return new URLSDto(
                 urls.getId(),
-                urls.getOgURL(),
-                urls.getSURL(),
+                urls.getOriginalURL(),
+                urls.getShortURL(),
                 urls.getClicks()
         );
     }
     public static URLS mapToURLS(URLSDto urlsDto){
         return new URLS(
                 urlsDto.getId(),
-                urlsDto.getOgURL(),
-                urlsDto.getSURL(),
+                urlsDto.getOriginalURL(),
+                urlsDto.getShortURL(),
                 urlsDto.getClicks()
         );
     }
