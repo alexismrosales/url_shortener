@@ -1,4 +1,4 @@
-package com.alxmr.url_shortenerbackend.logic;
+package com.alxmr.url_shortenerbackend.service.implementation.logic;
 
 public class SURLAnalytics {
 }
