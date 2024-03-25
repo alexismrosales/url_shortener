@@ -8,7 +8,7 @@ import lombok.*;
 
 public class URLSDto {
     private Long id;
-    private String ogURL;
-    private String sURL;
+    private String originalURL;
+    private String shortURL;
     private Short clicks;
 }

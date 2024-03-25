@@ -15,9 +15,9 @@ public class URLS {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(columnDefinition = "TEXT", name = "original_URL")
-    private String ogURL;
+    private String originalURL;
     @Column(columnDefinition = "TEXT", name = "short_URL")
-    private String sURL;
+    private String shortURL;
     @Column(name = "Clicks")
     private Short clicks;
 }
