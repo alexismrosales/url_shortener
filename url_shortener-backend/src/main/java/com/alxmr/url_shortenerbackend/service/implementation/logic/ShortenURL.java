@@ -19,17 +19,13 @@ public class ShortenURL {
         Integer increase = 5;
         String short_url, original_url = ogURL;
         if(back_half.isEmpty())
-        {
             do{
                 short_url = toHash(original_url,increase);
                 increase++;
             }
             while(urlExist(original_url));
-        }
         else
-        {
             short_url = "/" + back_half;
-        }
         return short_url;
     }
 

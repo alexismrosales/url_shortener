@@ -21,12 +21,10 @@ public class URLSController {
     @PostMapping("/{back_half}/{needsQR}")
     public ResponseEntity<URLSDto> createSURL(@RequestBody URLSDto urlsDto, @PathVariable String back_half, @PathVariable Boolean needsQR){
         URLSDto savedSURL;
-        if(back_half.equals("foo")) {
+        if(back_half.equals("foo"))
             savedSURL = urlsService.createSURL(urlsDto,"",needsQR);
-        }
-        else{
+        else
             savedSURL = urlsService.createSURL(urlsDto,back_half,needsQR);
-        }
         return new ResponseEntity<>(savedSURL, HttpStatus.CREATED);
     }
 
@@ -37,8 +35,13 @@ public class URLSController {
         if(urlsService.surlExists(path)) {
             String original_url = urlsService.getOgURL(path);
             return new RedirectView(original_url);
-        } else {
+        } else
             return new RedirectView(external_url);
-        }
+    }
+    // Verify if the back-half exist
+    @PostMapping("/{back_half}")
+    public ResponseEntity<Boolean> CheckBackHalf(@PathVariable("back_half") String back_half){
+        Boolean exists = urlsService.surlExists(back_half);
+        return new ResponseEntity<>(exists,HttpStatus.OK);
     }
 }
