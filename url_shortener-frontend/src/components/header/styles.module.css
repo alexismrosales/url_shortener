@@ -1,0 +1,24 @@
+.container {
+  @apply h-full w-full flex grid grid-cols-10
+}
+
+.title {
+  @apply col-span-8 font-bold text-[var(--tertiary)] m-10 ml-20 tracking-wide;
+  font-family: "Changa", sans-serif;
+}
+
+.mainTitle {
+  @apply text-5xl
+}
+
+.secondaryTitle {
+  @apply text-5xl
+}
+
+.refLogo {
+  @apply md:flex hidden items-center justify-end
+}
+
+.logo {
+  @apply h-10 w-10
+}
