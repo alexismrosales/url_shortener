@@ -1,0 +1,12 @@
+.container {
+  @apply h-auto bg-[var(--tertiary)] md:m-4 m-2 rounded-lg flex items-center justify-center;
+}
+
+.subtext {
+  @apply text-[var(--primary)] text-4xl;
+  font-family: "Changa", sans-serif;
+}
+
+.mainInput {
+  @apply p-10
+}
