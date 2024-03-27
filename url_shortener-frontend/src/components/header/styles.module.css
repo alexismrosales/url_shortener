@@ -3,7 +3,7 @@
 }
 
 .title {
-  @apply col-span-8 font-bold text-[var(--tertiary)] m-10 ml-20 tracking-wide;
+  @apply col-span-8 font-bold text-[var(--tertiary)] m-5 md:m-10 md:ml-20 tracking-wide;
   font-family: "Changa", sans-serif;
 }
 
