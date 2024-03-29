@@ -1,4 +1,3 @@
-import { mkdir } from "fs/promises";
 import React, { useState } from "react";
 
 import { createSURL, checkBackHalf } from "../../api/fetchData";
@@ -8,7 +7,10 @@ import style from "./styles.module.css"
 const ShortURLContainer = () => {
   const [url, setUrl] = useState("")
   const [backHalf, setBackhalf] = useState("")
-  const [shortUrl, setShortUrl] = useState("");
+  const [sURLItem, setSURLItem] = useState({
+    shortURL: ""
+  });
+  const [check, setCheck] = useState(null);
   // Submit data to the server
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,8 +19,11 @@ const ShortURLContainer = () => {
       shortURL: "",
       clicks: 0
     };
-    createShortUrl(URLItem, backHalf, false);
+    handleCreateSURL(setSURLItem, URLItem, "foo", false);
   };
+  const handleCheckBackhalf = () => {
+    checkCustomBackHalf(backHalf, setCheck);
+  }
   return (
     <div className="flex justify-center">
       <div className={style.container}>
@@ -35,11 +40,33 @@ const ShortURLContainer = () => {
               <br />
               <button type="submit" className={style.mainButton}>SHORT</button>
             </div>
-            <div>
-              <p>Your short URL is: </p>
-              <p></p>
+            <div className={style.extraOptions}>
+              <p >If you want a custom URL check before if it exist.</p>
+              <input className={style.secondaryInput}
+                value={backHalf}
+                onChange={(event) => setBackhalf(event.target.value)}
+                type="url"
+                placeholder="Paste your custom link here"
+              />
+              <button onClick={handleCheckBackhalf} className={style.checkBackHalf}>Check</button>
+              <span>
+                {check ? (<>El url ya existe</>)
+                  :
+                  (<>El url es valido </>)
+                }
+              </span>
+              <br />
+              <button className={style.secondaryButton}>More options</button>
             </div>
-            <button>More options</button>
+            <div>
+              <br />
+              <p> {sURLItem && sURLItem.shortURL ? (
+                <> Your short URL is: <br /> <span className="text-xl"> localhost:8080/{sURLItem.shortURL} </span> </>
+              ) : (
+                <span> Generating short URL </span>
+              )}
+              </p>
+            </div>
           </div>
         </form>
       </div>
@@ -47,11 +74,21 @@ const ShortURLContainer = () => {
   );
 };
 
-const createShortUrl = (URLItem: any, back_half: string, needsQR: boolean) => {
+const handleCreateSURL = (setShortUrl: any, URLItem: any, back_half: string, needsQR: boolean) => {
+  console.log(URLItem)
   createSURL(URLItem, back_half, needsQR).then(response => {
     console.log("SURL created succesfully");
+    setShortUrl(response.data);
   }).catch(error => {
-    console.log("Error creating SURL")
+    console.error("Error creating SURL : ", error);
   });
+}
+const checkCustomBackHalf = (back_half: string, setCheck: any) => {
+  checkBackHalf(back_half).then(response => {
+    console.log("Checking succesfully");
+    setCheck(response.data);
+  }).catch(error => {
+    console.error("Error checking back half");
+  })
 }
 export default ShortURLContainer;
