@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { createSURL, checkBackHalf } from "../../api/fetchData";
+import { handleCreateSURL, handleCheckCustomBackHalf } from "../../services/responseHandler";
 
 import style from "./styles.module.css"
 
@@ -21,9 +21,7 @@ const ShortURLContainer = () => {
     };
     handleCreateSURL(setSURLItem, URLItem, "foo", false);
   };
-  const handleCheckBackhalf = () => {
-    checkCustomBackHalf(backHalf, setCheck);
-  }
+  const handleCheckBackhalf = () => handleCheckCustomBackHalf(backHalf, setCheck);
   return (
     <div className="flex justify-center">
       <div className={style.container}>
@@ -74,21 +72,5 @@ const ShortURLContainer = () => {
   );
 };
 
-const handleCreateSURL = (setShortUrl: any, URLItem: any, back_half: string, needsQR: boolean) => {
-  console.log(URLItem)
-  createSURL(URLItem, back_half, needsQR).then(response => {
-    console.log("SURL created succesfully");
-    setShortUrl(response.data);
-  }).catch(error => {
-    console.error("Error creating SURL : ", error);
-  });
-}
-const checkCustomBackHalf = (back_half: string, setCheck: any) => {
-  checkBackHalf(back_half).then(response => {
-    console.log("Checking succesfully");
-    setCheck(response.data);
-  }).catch(error => {
-    console.error("Error checking back half");
-  })
-}
+
 export default ShortURLContainer;
