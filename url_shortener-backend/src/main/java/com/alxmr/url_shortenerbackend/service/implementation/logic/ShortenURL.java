@@ -1,6 +1,7 @@
 package com.alxmr.url_shortenerbackend.service.implementation.logic;
 
 import com.alxmr.url_shortenerbackend.dto.URLSDto;
+import com.alxmr.url_shortenerbackend.entity.URLS;
 import com.alxmr.url_shortenerbackend.repository.URLSRepository;
 import com.google.common.hash.Hashing;
 import java.nio.charset.StandardCharsets;
@@ -17,24 +18,38 @@ public class ShortenURL {
     // ShortenURL : Main function to convert the original URL to short URL
     public String toShort(String back_half) {
         Integer increase = 5;
-        String short_url, original_url = ogURL;
+        String short_url;
+
         if(back_half.isEmpty())
             do{
-                short_url = toHash(original_url,increase);
+                short_url = toHash(ogURL,increase);
                 increase++;
             }
-            while(urlExist(original_url));
+            while(surlExist(short_url));
         else
             short_url = "/" + back_half;
         return short_url;
     }
 
+    // Check if the url exists in the repository
+    public boolean verifyIfUrlExists(){
+        return urlExists(ogURL);
+    }
+
+    // Get URLS object
+    public URLS getIfUrlIfExists() {
+        return urlsRepository.findByOriginalURL(ogURL);
+    }
+    // Private || Codify url using sha256
     private String toHash(String url, Integer size) {
         String sha256 = Hashing.sha256().hashString(url, StandardCharsets.UTF_8).toString();
         return sha256.substring(0,size);
     }
-    public Boolean urlExist(String url)
+
+    private boolean urlExists(String url) { return urlsRepository.existsByOriginalURL(url);}
+    private boolean surlExist(String url)
     {
-        return urlsRepository.existsByOriginalURL(url);
+        return urlsRepository.existsByShortURL(url);
     }
+
 }

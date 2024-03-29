@@ -5,7 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface URLSRepository extends JpaRepository<URLS,Long>{
     URLS findByShortURL(String sURL);
-    Boolean existsByOriginalURL(String url);
+    URLS findByOriginalURL(String URL);
+    Boolean existsByOriginalURL (String url);
 
     Boolean existsByShortURL(String url);
 }
