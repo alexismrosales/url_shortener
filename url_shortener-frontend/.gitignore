@@ -17,7 +17,9 @@
 .env.development.local
 .env.test.local
 .env.production.local
-env_variables.d.ts 
+
+# Global variables
+global_variables.ts
 
 npm-debug.log*
 yarn-debug.log*
