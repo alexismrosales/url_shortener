@@ -11,13 +11,13 @@ const ShortURLContainer = () => {
   const [sURLItem, setSURLItem] = useState({
     shortURL: ""
   });
-  const [check, setCheck] = useState(true);
+  const [check, setCheck] = useState(false);
 
   // Load data from response handler
   const handleCheckBackhalf = async (backhalf: string) => {
-    console.log("backhalf given: ", backhalf)
     const response = await handleCheckCustomBackHalf(backhalf);
-    setCheck(response.data)
+    setCheck(response.data);
+    //console.log("Valor de check después de handleCheckBackhalf:", check);
     const checkBackHalf = document.getElementById("checkBackHalf");
     checkBackHalf?.setAttribute("class", "flex");
   };
@@ -36,32 +36,32 @@ const ShortURLContainer = () => {
 
   // Submit data to the server
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
     const URLItem = {
       originalURL: url,
       shortURL: "",
       clicks: 0
     };
-    backHalf !== ""
-      ?
-      handleCreateSURL(setSURLItem, URLItem, backHalf, false)
-      :
-      handleCreateSURL(setSURLItem, URLItem, "foo", false);
-  };
+    if (!check)
+      if (backHalf === "")
+        handleCreateSURL(setSURLItem, URLItem, "foo", false);
+      else
+        handleCreateSURL(setSURLItem, URLItem, backHalf, false);
 
+  };
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCheck(true);
+    setBackhalf(event.target.value)
+  }
   // Checking if the url is available
   useEffect(() => {
     if (backHalf !== "") {
       const timerId = setTimeout(() => {
         handleCheckBackhalf(backHalf);
-      }, 100);
-
+      }, 1000);
       return () => {
         clearTimeout(timerId);
       };
     }
-    else
-      setCheck(false);
   }, [backHalf, check]);
 
   // Depending of check value disable button or enable it
@@ -103,7 +103,7 @@ const ShortURLContainer = () => {
                 <input
                   className={style.secondaryInput}
                   value={backHalf}
-                  onChange={(event) => setBackhalf(event.target.value)}
+                  onChange={handleOnChange}
                   type="text"
                   placeholder="Your custom link here"
                 />
@@ -115,7 +115,10 @@ const ShortURLContainer = () => {
                   (<>{check}YOUR URL IS VALID{check}</>)
                 }
               </p>
-              <button id="submitTwo" type="submit" className={classNames(style.mainButton, "w-full")}
+              <button
+                id="submitTwo"
+                type="submit"
+                className={classNames(style.mainButton, "w-full")}
                 disabled={check}>
                 SHORT
               </button>
