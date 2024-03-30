@@ -7,11 +7,14 @@ export const handleCreateSURL = (setShortUrl: any, URLItem: any, back_half: stri
     console.error("Error creating SURL : ", error);
   });
 }
-export const handleCheckCustomBackHalf = (back_half: string, setCheck: any) => {
-  checkBackHalf(back_half).then(response => {
-    console.log("Checking succesfully");
-    setCheck(response.data);
-  }).catch(error => {
+export const handleCheckCustomBackHalf = async (back_half: string) => {
+  try {
+    const response = await checkBackHalf(back_half);
+    console.log("Checking successfully");
+    return response;
+  } catch (error) {
+    console.log(back_half, "...");
     console.error("Error checking back half: ", error);
-  })
+    throw error; // Re-lanzamos el error para que se maneje en el lugar donde se llama a esta función
+  }
 }

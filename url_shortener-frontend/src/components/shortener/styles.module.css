@@ -1,16 +1,24 @@
 .container {
-  @apply h-auto w-auto md:w-2/5 bg-[var(--tertiary)] md:m-4 m-2 rounded-lg flex items-center justify-center justify-self-center;
+  @apply h-auto w-auto bg-[var(--tertiary)] md:m-4 m-2 rounded-lg flex flex-col items-center;
 }
 
 .subtext {
-  @apply text-[var(--primary)] text-4xl;
+  @apply text-[var(--primary)];
   font-family: "Changa", sans-serif;
 }
 
 .mainInput {
-  @apply p-3 md:rounded-l-lg md:rounded-none rounded-lg md:w-96 w-full
+  @apply p-3 md:rounded-l-lg rounded-none rounded-lg md:w-96 w-full
 }
 
 .mainButton {
-  @apply bg-[var(--primary)] md:rounded-r-lg md:rounded-none rounded-lg p-3
+  @apply bg-[var(--primary)] md:rounded-r-lg rounded-lg p-3 text-gray-300
+}
+
+.secondaryInput {
+  @apply p-3 md:rounded-l-lg rounded-none rounded-lg w-full
+}
+
+.secondaryButton {
+  @apply bg-[var(--primary)] rounded-lg p-3 md:mx-0 mx-2 text-gray-300
 }
