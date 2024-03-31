@@ -1,0 +1,23 @@
+.cardContainer {
+  @apply h-auto w-auto bg-[var(--tertiary)] md:m-4 rounded-lg flex flex-col items-center shadow-xl;
+}
+
+.subtext {
+  @apply text-[var(--primary)];
+  font-family: "Changa", sans-serif;
+}
+
+.url {
+  @apply text-[var(--secondary)];
+  font-family: "Changa", sans-serif;
+}
+
+.buttonClipboard {
+  @apply bg-[var(--secondary)] shadow-xl text-lg text-gray-300 rounded-lg w-4/5 py-4;
+  font-family: "Changa", sans-serif;
+}
+
+.tooltip {
+  @apply bg-[var(--primary)] rounded-lg p-4 shadow-xl shadow-black/10;
+  font-family: "Changa", sans-serif;
+}
