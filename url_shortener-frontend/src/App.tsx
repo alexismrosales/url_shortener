@@ -1,13 +1,23 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Header from "./components/header";
-import ShortURLContainer from "./components/shortener";
+import ShortURL from "./components/shortener";
+import ShowShorterURL from "./components/showShortenURL";
 import Footer from "./components/footer";
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <ShortURLContainer />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ShortURL />} />
+          <Route path="/shortenurl" element={<ShowShorterURL />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+
     </div>
   );
 }
