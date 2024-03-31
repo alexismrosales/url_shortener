@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
 import { handleCreateSURL, handleCheckCustomBackHalf } from "../../services/responseHandler";
 
 import style from "./styles.module.css"
 
-const ShortURLContainer = () => {
+const ShortURL = () => {
   const [url, setUrl] = useState("")
   const [backHalf, setBackhalf] = useState("")
-  const [sURLItem, setSURLItem] = useState({
-    shortURL: ""
-  });
+  const [sURLItem, setSURLItem] = useState({ shortURL: "" });
   const [check, setCheck] = useState(false);
+  const navigate = useNavigate();
 
   // Load data from response handler
   const handleCheckBackhalf = async (backhalf: string) => {
     const response = await handleCheckCustomBackHalf(backhalf);
     setCheck(response.data);
-    //console.log("Valor de check después de handleCheckBackhalf:", check);
+
     const checkBackHalf = document.getElementById("checkBackHalf");
-    checkBackHalf?.setAttribute("class", "flex");
+    checkBackHalf?.setAttribute("class", style.checkBackHalf);
   };
 
   // Activate other options component 
@@ -34,34 +34,48 @@ const ShortURLContainer = () => {
     submitOne?.setAttribute("class", "hidden");
   };
 
+  // Disabling button while typing
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCheck(true);
+    setBackhalf(event.target.value)
+  }
+
+  // Setting redirection to shortenurl route
+  const Redirect = async (surl: string) => {
+    navigate({
+      pathname: '/shortenurl',
+      search: createSearchParams({ surl: surl }).toString()
+    });
+  }
+
   // Submit data to the server
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const URLItem = {
       originalURL: url,
       shortURL: "",
       clicks: 0
     };
-    if (!check)
+    if (!check) {
       if (backHalf === "")
-        handleCreateSURL(setSURLItem, URLItem, "foo", false);
+        await handleCreateSURL(setSURLItem, URLItem, "foo", false);
       else
-        handleCreateSURL(setSURLItem, URLItem, backHalf, false);
-
+        await handleCreateSURL(setSURLItem, URLItem, backHalf, false);
+    }
   };
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCheck(true);
-    setBackhalf(event.target.value)
-  }
+
   // Checking if the url is available
   useEffect(() => {
     if (backHalf !== "") {
+      // After verify checkBackHalf wait 1 second to set backhalf
       const timerId = setTimeout(() => {
         handleCheckBackhalf(backHalf);
       }, 1000);
       return () => {
         clearTimeout(timerId);
       };
-    }
+    } else
+      setCheck(false)
   }, [backHalf, check]);
 
   // Depending of check value disable button or enable it
@@ -73,12 +87,21 @@ const ShortURLContainer = () => {
       submitTwo?.setAttribute("class", classNames(style.mainButton, "w-full"))
   }, [check]);
 
+  // Redirect and reset the SURLItem hook
+  useEffect(() => {
+    if (sURLItem.shortURL !== "") {
+      sessionStorage.setItem("sURL", sURLItem.shortURL);
+      Redirect(sURLItem.shortURL);
+      setSURLItem({ shortURL: "" });
+    }
+  }, [sURLItem]);
+
   return (
     <div className="flex justify-center">
       <div className={style.container}>
         <form onSubmit={handleSubmit}>
           <div className="p-10">
-            <label className={classNames(style.subtext, "text-4xl")}>
+            <label className={classNames(style.subtext, "text-5xl")}>
               To short your link paste it below:
             </label>
             <br /> <br />
@@ -95,7 +118,7 @@ const ShortURLContainer = () => {
             </div>
             <div id="extraOptions" className="hidden">
               <br />
-              <label className={classNames(style.subtext, "text-2xl")}>
+              <label className={classNames(style.subtext, "text-3xl")}>
                 If you want a custom URL check before if it exist.
               </label>
               <br />
@@ -124,7 +147,7 @@ const ShortURLContainer = () => {
               </button>
             </div>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center my-5">
             <button
               id="extraButton"
               onClick={handleShowOptions}
@@ -133,29 +156,12 @@ const ShortURLContainer = () => {
               MORE OPTIONS
             </button>
           </div>
-
         </form>
-        <div className="flex justify-center">
-          <br />
-          <p> {sURLItem && sURLItem.shortURL ? (
-            <>
-              Your short URL is:
-              <span className="text-xl">
-                localhost:8080/{sURLItem.shortURL}
-              </span>
-            </>
-          ) : (
-            <span className="hidden">
-              Generating short URL...
-            </span>
-          )}
-          </p>
-        </div>
-
       </div>
     </div>
   );
 };
 
 
-export default ShortURLContainer; 
+
+export default ShortURL; 
