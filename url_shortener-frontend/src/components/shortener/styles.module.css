@@ -8,17 +8,29 @@
 }
 
 .mainInput {
-  @apply p-3 md:rounded-l-lg rounded-none rounded-lg md:w-96 w-full
+  @apply p-3 py-4 md:rounded-l-lg rounded-none rounded-lg md:w-4/5 w-full;
+  font-family: "Changa", sans-serif;
+
 }
 
 .mainButton {
-  @apply bg-[var(--primary)] md:rounded-r-lg rounded-lg p-3 text-gray-300
+  @apply bg-[var(--secondary)] text-2xl md:rounded-r-lg rounded-lg p-3 text-gray-300;
+  font-family: "Changa", sans-serif;
+
 }
 
 .secondaryInput {
-  @apply p-3 md:rounded-l-lg rounded-none rounded-lg w-full
+  @apply p-3 py-4 md:rounded-l-lg rounded-none rounded-lg w-full;
+  font-family: "Changa", sans-serif;
 }
 
 .secondaryButton {
-  @apply bg-[var(--primary)] rounded-lg p-3 md:mx-0 mx-2 text-gray-300
+  @apply bg-[var(--secondary)] text-2xl rounded-lg p-3 md:mx-0 mx-2 text-gray-300;
+  font-family: "Changa", sans-serif;
+
+}
+
+.checkBackHalf {
+  @apply flex text-[var(--secondary)] text-2xl pb-3;
+  font-family: "Changa", sans-serif;
 }
