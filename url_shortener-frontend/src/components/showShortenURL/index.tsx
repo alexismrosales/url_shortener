@@ -27,6 +27,10 @@ const ShowShorterURL = () => {
       throw error;
     }
   }
+  const handleRedirection = () => {
+    console.log("Your are being redirected to " + completeSURL);
+    window.location.replace("https://" + completeSURL);
+  }
   console.log(completeSURL);
   if (surl !== sessionSurl || surl == null) {
     return <Navigate to="/url_shortener/" />;
@@ -39,7 +43,7 @@ const ShowShorterURL = () => {
           Your short url is:
         </p>
         <br />
-        <a href={"https://www." + completeSURL} target="_blank">
+        <a onClick={handleRedirection} target="_blank">
           <p className={classNames(style.url, "md:text-5xl text-2xl md:m-10 my-10")}>
             {completeSURL}
           </p>
