@@ -39,7 +39,7 @@ const ShowShorterURL = () => {
           Your short url is:
         </p>
         <br />
-        <a href={"https://" + completeSURL} target="_blank">
+        <a href={"https://www." + completeSURL} target="_blank">
           <p className={classNames(style.url, "md:text-5xl text-2xl md:m-10 my-10")}>
             {completeSURL}
           </p>
