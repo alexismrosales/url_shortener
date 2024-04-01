@@ -27,7 +27,7 @@ public class ShortenURL {
             }
             while(surlExist(short_url));
         else
-            short_url = "/" + back_half;
+            short_url = back_half;
         return short_url;
     }
 

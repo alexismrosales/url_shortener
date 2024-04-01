@@ -17,18 +17,9 @@ public class URLSService implements IURLSService {
     public URLSDto createSURL(URLSDto urlsDto, String back_half, Boolean needsQR) {
         ShortenURL shortenURL = new ShortenURL(urlsRepository,urlsDto);
         URLS urls;
-        // After create a new SURL, check if the url exist
-        if(shortenURL.verifyIfUrlExists())
-        {
-            urls = shortenURL.getIfUrlIfExists();
-            return URLSMapper.mapToURLSDto(urls);
-        }
-
         String short_url = shortenURL.toShort(back_half);
-
         urlsDto.setShortURL(short_url);
         urls = URLSMapper.mapToURLS(urlsDto);
-
         URLS savedUrls = urlsRepository.save(urls);
 
         return URLSMapper.mapToURLSDto(savedUrls);
