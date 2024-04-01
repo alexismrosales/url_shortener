@@ -28,6 +28,13 @@ public class URLSController {
         return new ResponseEntity<>(savedSURL, HttpStatus.CREATED);
     }
 
+    // Redirection to the main page
+    @GetMapping("/")
+    public RedirectView redirectMainPage() {
+        String mypage = "https://alexismrosales.github.io/url_shortener/";
+        return new RedirectView(mypage);
+    }
+    
     // Redirection for short links to the original ones
     @GetMapping("/{path}")
     public RedirectView redirectSURL(@PathVariable("path") String path){
