@@ -27,7 +27,7 @@ const ShowShorterURL = () => {
       throw error;
     }
   }
-
+  console.log(completeSURL);
   if (surl !== sessionSurl || surl == null) {
     return <Navigate to="/url_shortener/" />;
   }
@@ -39,7 +39,7 @@ const ShowShorterURL = () => {
           Your short url is:
         </p>
         <br />
-        <a href={completeSURL} target="_blank">
+        <a href={"https://" + completeSURL} target="_blank">
           <p className={classNames(style.url, "md:text-5xl text-2xl md:m-10 my-10")}>
             {completeSURL}
           </p>
@@ -55,6 +55,6 @@ const ShowShorterURL = () => {
           </Tooltip>
         </div>
       </div>
-    </div>);
+    </div >);
 }
 export default ShowShorterURL;
