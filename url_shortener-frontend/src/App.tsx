@@ -12,8 +12,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<ShortURL />} />
-          <Route path="/shortenurl" element={<ShowShorterURL />} />
+          <Route path="/url_shortener/" element={<ShortURL />} />
+          <Route path="/url_shortener/shortenurl" element={<ShowShorterURL />} />
         </Routes>
         <Footer />
       </BrowserRouter>

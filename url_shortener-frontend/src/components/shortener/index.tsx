@@ -48,7 +48,7 @@ const ShortURL = () => {
   // Setting redirection to shortenurl route
   const Redirect = async (surl: string) => {
     navigate({
-      pathname: '/shortenurl',
+      pathname: '/url_shortener/shortenurl',
       search: createSearchParams({ surl: surl }).toString()
     });
   }

@@ -28,8 +28,8 @@ const ShowShorterURL = () => {
     }
   }
 
-  if (surl !== sessionSurl) {
-    return <Navigate to="/" />;
+  if (surl !== sessionSurl || surl == null) {
+    return <Navigate to="/url_shortener/" />;
   }
 
   return (
