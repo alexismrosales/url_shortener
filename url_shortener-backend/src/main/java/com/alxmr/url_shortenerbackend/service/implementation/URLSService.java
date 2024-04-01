@@ -18,6 +18,11 @@ public class URLSService implements IURLSService {
         ShortenURL shortenURL = new ShortenURL(urlsRepository,urlsDto);
         URLS urls;
         String short_url = shortenURL.toShort(back_half);
+        // In case we have duplicated short url without a set backhalf
+        if(shortenURL.Duplicate()){
+            urls = shortenURL.getIfUrlIfExists();
+            return URLSMapper.mapToURLSDto(urls);
+        }
         urlsDto.setShortURL(short_url);
         urls = URLSMapper.mapToURLS(urlsDto);
         URLS savedUrls = urlsRepository.save(urls);

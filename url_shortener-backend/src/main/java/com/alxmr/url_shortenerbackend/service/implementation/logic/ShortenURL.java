@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 public class ShortenURL {
     private final URLSRepository urlsRepository;
     private final String ogURL;
+    private Boolean hasNoBack_Half = false;
 
     public ShortenURL(URLSRepository urlsRepository, URLSDto urlsDto) {
         this.urlsRepository = urlsRepository;
@@ -20,17 +21,26 @@ public class ShortenURL {
         Integer increase = 5;
         String short_url;
 
-        if(back_half.isEmpty())
-            do{
-                short_url = toHash(ogURL,increase);
+        if(back_half.isEmpty()) {
+            if(verifyIfUrlExists()){
+                hasNoBack_Half = true;
+                return  getIfUrlIfExists().getShortURL();
+            }
+            do {
+                short_url = toHash(ogURL, increase);
                 increase++;
             }
-            while(surlExist(short_url));
+            while (surlExist(short_url));
+        }
         else
             short_url = back_half;
         return short_url;
     }
-
+    // Check if is not duplicate without no backhalf
+    public boolean Duplicate()
+    {
+        return hasNoBack_Half;
+    }
     // Check if the url exists in the repository
     public boolean verifyIfUrlExists(){
         return urlExists(ogURL);
@@ -46,7 +56,9 @@ public class ShortenURL {
         return sha256.substring(0,size);
     }
 
-    private boolean urlExists(String url) { return urlsRepository.existsByOriginalURL(url);}
+    private boolean urlExists(String url) {
+        return urlsRepository.existsByOriginalURL(url);
+    }
     private boolean surlExist(String url)
     {
         return urlsRepository.existsByShortURL(url);
