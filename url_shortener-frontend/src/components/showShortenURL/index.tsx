@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams, Navigate } from "react-router-dom";
 import classNames from "classnames";
 import { Tooltip } from "@material-tailwind/react";
-import { apiKey } from "../../global_variables";
+import { urlGenerating } from "../../global_variables";
 
 import style from "./styles.module.css";
 
@@ -10,7 +10,7 @@ const ShowShorterURL = () => {
   const [data] = useSearchParams();
   const surl = data.get("surl");
   const sessionSurl = sessionStorage.getItem("sURL");
-  const completeSURL = apiKey + "/" + surl;
+  const completeSURL = urlGenerating + "/" + surl;
 
   const [copyStatus, setCopyStatus] = useState("Copy to clipboard");
 
