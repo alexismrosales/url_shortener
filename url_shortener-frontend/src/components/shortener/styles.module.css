@@ -2,35 +2,46 @@
   @apply h-auto w-auto bg-[var(--tertiary)] md:m-4 m-2 rounded-lg flex flex-col items-center;
 }
 
+.containerInfo {
+  @apply h-auto md:w-1/2 w-auto bg-[var(--tertiary)] md:m-10 m-2 rounded-lg flex flex-col items-center;
+}
+
+.font {
+  font-family: "Changa", sans-serif;
+}
+
+.fontText {
+  @apply text-[var(--secondary)];
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
 .subtext {
   @apply text-[var(--primary)];
-  font-family: "Changa", sans-serif;
 }
 
 .mainInput {
   @apply p-3 py-4 md:rounded-l-lg rounded-none rounded-lg md:w-4/5 w-full;
-  font-family: "Changa", sans-serif;
-
 }
 
 .mainButton {
   @apply bg-[var(--secondary)] text-2xl md:rounded-r-lg rounded-lg p-3 text-gray-300;
-  font-family: "Changa", sans-serif;
-
 }
 
 .secondaryInput {
   @apply p-3 py-4 md:rounded-l-lg rounded-none rounded-lg w-full;
-  font-family: "Changa", sans-serif;
 }
 
 .secondaryButton {
   @apply bg-[var(--secondary)] text-2xl rounded-lg p-3 md:mx-0 mx-2 text-gray-300;
-  font-family: "Changa", sans-serif;
-
 }
 
 .checkBackHalf {
   @apply flex text-[var(--secondary)] text-2xl pb-3;
-  font-family: "Changa", sans-serif;
+}
+
+.subtitle {
+  @apply text-5xl text-[var(--primary)]
 }
