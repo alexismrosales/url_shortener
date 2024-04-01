@@ -2,7 +2,7 @@ export const data = {
   instructions: "To short your link paste it below",
   customBH: "If you want a custom URL check before if it exist",
   validURL: "Your URL is valid",
-  invalidURL: "Your URL is invalid",
+  invalidURL: "Your URL is already in use",
   shortButton: "SHORT",
   moreOptsButton: "MORE OPTIONS",
   wtoDo: "What can you do here?",
