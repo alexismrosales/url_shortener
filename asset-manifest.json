@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/alexismrosales/url_shortener/static/css/main.ad0e0068.css",
-    "main.js": "/alexismrosales/url_shortener/static/js/main.3c979a70.js",
-    "index.html": "/alexismrosales/url_shortener/index.html",
-    "main.ad0e0068.css.map": "/alexismrosales/url_shortener/static/css/main.ad0e0068.css.map",
-    "main.3c979a70.js.map": "/alexismrosales/url_shortener/static/js/main.3c979a70.js.map"
+    "main.css": "/url_shortener/static/css/main.ad0e0068.css",
+    "main.js": "/url_shortener/static/js/main.3c979a70.js",
+    "index.html": "/url_shortener/index.html",
+    "main.ad0e0068.css.map": "/url_shortener/static/css/main.ad0e0068.css.map",
+    "main.3c979a70.js.map": "/url_shortener/static/js/main.3c979a70.js.map"
   },
   "entrypoints": [
     "static/css/main.ad0e0068.css",
