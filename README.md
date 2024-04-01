@@ -1,7 +1,12 @@
 # 🖥️🏄‍♀️ Alxmr : Free URL shortener. 
-Web url shortener service
+Web url shortener service. 
+
+You can access to the web app here
+### <p align="center"><a href="https://alexismrosales.github.io/url_shortener/">alexismrosales.github.io/url_shortener</a></p>
+<!--
 ## 🔨 How to install
 ## ⌨️ CLI commands
+-->
 ## ✍️ Design 
 <details> 
 
