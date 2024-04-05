@@ -15,8 +15,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @AllArgsConstructor
 @RestController
 public class URLSController {
-
     private URLSService urlsService;
+    private final String external_url = "https://alexismrosales.github.io/url_shortener/";
     // Create a new short url
     @PostMapping("/{back_half}/{needsQR}")
     public ResponseEntity<URLSDto> createSURL(@RequestBody URLSDto urlsDto, @PathVariable String back_half, @PathVariable Boolean needsQR){
@@ -31,14 +31,12 @@ public class URLSController {
     // Redirection to the main page
     @GetMapping("/")
     public RedirectView redirectMainPage() {
-        String mypage = "https://alexismrosales.github.io/url_shortener/";
-        return new RedirectView(mypage);
+        return new RedirectView(external_url);
     }
     
     // Redirection for short links to the original ones
     @GetMapping("/{path}")
     public RedirectView redirectSURL(@PathVariable("path") String path){
-        String external_url = "https://www.google.com";
         if(urlsService.surlExists(path)) {
             String original_url = urlsService.getOgURL(path);
             return new RedirectView(original_url);
