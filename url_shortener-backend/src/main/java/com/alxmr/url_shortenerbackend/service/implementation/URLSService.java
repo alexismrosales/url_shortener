@@ -33,9 +33,10 @@ public class URLSService implements IURLSService {
     @Override
     public String getOgURL(String surl) {
         URLS urls =  urlsRepository.findByShortURL(surl);
-        int clicks = urls.getClicks();
+        int clicks = urls.getClicks()+1;
         // Increase one click
-        urls.setClicks(clicks+1);
+        urls.setClicks(clicks);
+        urlsRepository.save(urls);
         return urls.getOriginalURL();
     }
 
