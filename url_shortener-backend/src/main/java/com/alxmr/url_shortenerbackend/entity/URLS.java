@@ -19,5 +19,5 @@ public class URLS {
     @Column(columnDefinition = "TEXT", name = "short_URL")
     private String shortURL;
     @Column(name = "Clicks")
-    private Short clicks;
+    private Integer clicks;
 }

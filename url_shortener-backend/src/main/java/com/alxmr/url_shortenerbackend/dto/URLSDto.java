@@ -10,5 +10,5 @@ public class URLSDto {
     private Long id;
     private String originalURL;
     private String shortURL;
-    private Short clicks;
+    private Integer clicks;
 }
