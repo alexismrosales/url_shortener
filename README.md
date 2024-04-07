@@ -82,11 +82,9 @@ Implement web app to short URLs.
   
   - <p align="justify"> Link redirection: When someone accesses the short link, they will be redirected to original URL.</p>
   
-  - <p align="justify"> Statistics and tracking: Track total of clicks, show geolocalization of people which access to the url and devices used. </p>
+  - <p align="justify"> Statistics and tracking: Track total of clicks. </p>
 
-  - <p align="justify"> Link expiration: The link will expire if user set expiration or will be avalible for a maximum of 60 days. </p>
-  
-  - <p align="justify"> Usage limit: The number of links will be for now set to a maximum of 100 URLs. </p>
+  - <p align="justify"> Usage limit: The number of links will be for now set to a maximum of 10,000 URLs. </p>
 
   - <p align="justify"> Custom links: Using the domain the user will be able to modify the url if it is avalible. </p>
 
